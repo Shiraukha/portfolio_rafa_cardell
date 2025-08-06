@@ -1,0 +1,86 @@
+---
+// filepath: /Users/rafelcardellgaya/Desktop/Astro Portfolio/stale-shell/src/components/Card.astro
+
+// Definición de la interfaz Props
+// Define las propiedades esperadas para el componente Card.
+// - `title`: Título del card.
+// - `body`: Descripción o contenido del card.
+// - `href`: Enlace al que apunta el card.
+interface Props {
+    title: string;
+    body: string;
+    href: string;
+}
+
+// Extracción de las propiedades desde Astro.props
+const { href, title, body } = Astro.props;
+---
+
+<!-- Contenedor principal del card -->
+<li class="link-card">
+    <!-- Enlace del card -->
+    <a href={href}>
+        <!-- Título del card -->
+        <h2>
+            {title}
+            <span>&rarr;</span> <!-- Flecha decorativa -->
+        </h2>
+        <!-- Contenido del card -->
+        <p>
+            {body}
+        </p>
+    </a>
+</li>
+
+<!-- Estilos del componente -->
+<style>
+    /* Estilo del contenedor principal del card */
+    .link-card {
+        list-style: none; /* Elimina el estilo de lista */
+        display: flex; /* Aplica diseño flexible */
+        padding: 1px; /* Espaciado interno */
+        background-color: #23262d; /* Fondo oscuro */
+        background-image: none; /* Sin imagen de fondo por defecto */
+        background-size: 400%; /* Tamaño del fondo */
+        border-radius: 7px; /* Bordes redondeados */
+        background-position: 100%; /* Posición inicial del fondo */
+        transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1); /* Animación suave */
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1); /* Sombra interna */
+    }
+
+    /* Estilo del enlace dentro del card */
+    .link-card > a {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        text-decoration: none; /* Elimina el subrayado */
+        line-height: 1.4; /* Altura de línea */
+        padding: calc(1.5rem - 1px); /* Espaciado interno */
+        border-radius: 8px; /* Bordes redondeados */
+        color: white; /* Color del texto */
+        background-color: #23262d; /* Fondo oscuro */
+        opacity: 0.8; /* Transparencia */
+    }
+
+    /* Estilo del título del card */
+    h2 {
+        margin: 0; /* Elimina márgenes */
+        font-size: 1.25rem; /* Tamaño del texto */
+        transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1); /* Animación suave del color */
+    }
+
+    /* Estilo del contenido del card */
+    p {
+        margin-top: 0.5rem; /* Espaciado superior */
+        margin-bottom: 0; /* Elimina el espaciado inferior */
+    }
+
+    /* Estilo del card en estado hover o focus */
+    .link-card:is(:hover, :focus-within) {
+        background-position: 0; /* Cambia la posición del fondo */
+        background-image: var(--accent-gradient); /* Aplica un gradiente */
+    }
+
+    /* Estilo del título en estado hover o focus */
+    .link-card:is(:hover, :focus-within) h2 {
+        color: rgb(var(--accent-light)); /* Cambia el color del texto */
+    }
+</style>

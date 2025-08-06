@@ -1,0 +1,43 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+
+// Definición de datos de experiencia
+// `EXPERIENCE` es un array que contiene objetos con información sobre cada experiencia.
+// Cada objeto incluye:
+// - `date`: Fecha de la experiencia.
+// - `title`: Título de la experiencia.
+// - `company`: Nombre de la empresa o institución.
+// - `description`: Descripción detallada de la experiencia.
+// - `link`: Enlace relacionado con la experiencia.
+const EXPERIENCE = [
+  {
+    date: "Actually...",
+    title: "Cooming soon",
+    company: "",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    link: "https://www.google.com/?hl=ca",
+  },
+  {
+    date: "October 2024",
+    title: "Fullstack Course",
+    company: "ConquerBlocks",
+    description:
+      "I’ve completed a Full Stack Web Development course at ConquerBlocks, gaining hands-on experience with technologies like JavaScript, React, Node.js, and SQL. Throughout the program, I built full-stack projects and developed strong problem-solving and coding skills.",
+    link: "https://www.conquerblocks.com/",
+  },
+]
+---
+
+<!-- Lista ordenada para mostrar las experiencias -->
+<ol class="relative mt-16">
+  {
+    // Iteración sobre el array EXPERIENCE
+    // Cada experiencia se renderiza utilizando el componente ExperienceItem
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>
